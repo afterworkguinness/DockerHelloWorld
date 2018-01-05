@@ -1,0 +1,17 @@
+version:  '3'
+services:
+  alpha-service:
+    build:  ./alpha-service
+    volumes:
+      - C:\Users\paul.churchward\code\restsimple\target:/app/restsimple
+    ports:
+      - 5000:8080
+
+  beta-service:
+    build:  ./beta-service
+    volumes:
+      - C:\Users\paul.churchward\code\betaservice\target:/app/betaservice
+    ports:
+      - 5001:8080
+    depends_on:
+      - alpha-service
